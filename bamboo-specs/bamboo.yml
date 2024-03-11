@@ -1,0 +1,42 @@
+---
+version: 2
+
+# build plan definition
+plan:
+  project-key: PROJECTKEY
+  key: PLANKEY
+  name: Product Name
+...
+branches:
+  create: manually
+  delete: never
+
+---
+version: 2
+
+# build plan permissions
+plan:
+  key: PROJECTKEY-PLANKEY
+plan-permissions:
+...
+
+---
+version: 2
+
+# deployment plan definition
+deployment:
+  # NOTE: deployment plan names must be unique
+  name: Product Name
+  source-plan: PROJECTKEY-PLANKEY
+release-naming:
+  next-version-name: ${bamboo.inject.version}
+  applies-to-branches: true
+...
+
+---
+version: 2
+
+# deployment plan permissions
+deployment:
+  name: Product Name
+deployment-permissions:
