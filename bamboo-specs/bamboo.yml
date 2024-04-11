@@ -6,15 +6,14 @@ plan:
 stages:
   - Build hull:
       - Build
-
-Build:
-  tasks:
-    - script:
-        - echo 'Hello Worwwwld!'
-
   - Deploy to Remote Server:
       - ssh:
           name: SSH to Remote Server
           description: Create file with Hello, World! on remote server
           commands:
             - ssh root@143.198.130.104 "echo 'Hello, World!' > /path/to/remote/file.txt"
+
+Build:
+  tasks:
+    - script:
+        - echo 'Hello Worwwwld!'
